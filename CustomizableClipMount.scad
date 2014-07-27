@@ -50,13 +50,13 @@ module clip(width,height,thick,tooth) {
 		cube(size=[thick,width,height+thick], center=false);
 		rotate([-90,0,0])
 		translate([thick,-height-thick,0])
-		cylinder(h=width,d=hook_diameter,$fn=10);
+		cylinder(h=width,r=hook_diameter/2,$fn=10);
 		translate([0-3,width/2,-thick+5])
 		//Add suction mounts M4 thread
 		if (suction_mount==1){
 			difference(){
 				cube(size=[suction_screw*2,width,10], center=true);
-				cylinder(h=10,d=suction_screw,$fn=10, center=true);
+				cylinder(h=10,r=suction_screw/2,$fn=10, center=true);
 			}
 		}
 	}
@@ -64,7 +64,7 @@ module clip(width,height,thick,tooth) {
 			rotate([-90,0,0])
 			translate([-thick,-thick,0])	
 			difference(){
-				cylinder(h=width,d=thick*4,$fn=20, center=true);
+				cylinder(h=width,r=thick*2,$fn=20, center=true);
 				translate([thick,0,0])
 				cube(size=[thick*2,thick*4,width], center=true);
 			}
